@@ -24,6 +24,7 @@ public class Main3Activity extends AppCompatActivity {
     public List<Note> noteList;
     public noteAdapter noteAdapter;
     int position = 0;
+    Note note=new Note();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,13 +73,15 @@ public class Main3Activity extends AppCompatActivity {
                 builder.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        edtShowTitle.setText("");
-                        edtShowDate.setText("");
-                        Note note = noteList.get(position);
-                        noteDao = new noteDao(Main3Activity.this);
-                        noteDao.deleteNote(note);
-                        noteList.remove(position);
-                        noteAdapter.notifyDataSetChanged();
+                        String ert=edtShowTitle.getText().toString();
+//                        edtShowTitle.setText("");
+//                        edtShowDate.setText("");
+//                        Note note = noteList.get(position);
+//                        noteDao = new noteDao(Main3Activity.this);
+//                        noteDao.deleteNote(note);
+//                        noteList.remove(position);
+                        Toast.makeText(Main3Activity.this,ert,Toast.LENGTH_LONG).show();
+                       // noteAdapter.notifyDataSetChanged();
                         startActivity(new Intent(Main3Activity.this, MainActivity.class));
 
 
