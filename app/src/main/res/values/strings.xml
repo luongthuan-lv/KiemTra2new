@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Ghi chú</string>
+    <string name="app_add">Thêm ghi chú</string>
+    <string name="app_delete">Chi tiết ghi chú</string>
+</resources>
