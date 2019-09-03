@@ -33,7 +33,7 @@ public class noteAdapter extends RecyclerView.Adapter<MyViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
         Note note=noteList.get(position);
        holder.edtTitle.setText(note.title);
        holder.edtDate.setText(note.date);
@@ -43,7 +43,7 @@ public class noteAdapter extends RecyclerView.Adapter<MyViewHolder> {
                Intent intent=new Intent(context,Main3Activity.class);
                 Note note=noteList.get(holder.getLayoutPosition());
                 Bundle bundle=new Bundle();
-                bundle.putInt("stt",0);
+                bundle.putInt("stt",position);
                 bundle.putString("title",note.title);
                 bundle.putString("content",note.conten);
                 bundle.putString("date",note.date);

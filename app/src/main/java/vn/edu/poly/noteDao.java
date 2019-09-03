@@ -24,7 +24,6 @@ public class noteDao {
     public long insertNote(Note note) {
         SQLiteDatabase sqLiteDatabase = noteRender.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-       // contentValues.put(COL_STT, note.stt);
         contentValues.put(COL_TITLE, note.title);
         contentValues.put(COL_DATE, note.date);
         contentValues.put(COL_CONTEXT, note.conten);

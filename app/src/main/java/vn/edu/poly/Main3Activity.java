@@ -21,10 +21,9 @@ public class Main3Activity extends AppCompatActivity {
     Toolbar toolbar3;
     EditText edtShowTitle, edtShowContext, edtShowDate;
     public noteDao noteDao;
-    public List<Note> noteList;
-    public noteAdapter noteAdapter;
-    int position = 0;
-    Note note=new Note();
+
+    int position;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,15 +72,15 @@ public class Main3Activity extends AppCompatActivity {
                 builder.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        String ert=edtShowTitle.getText().toString();
-//                        edtShowTitle.setText("");
-//                        edtShowDate.setText("");
-//                        Note note = noteList.get(position);
-//                        noteDao = new noteDao(Main3Activity.this);
-//                        noteDao.deleteNote(note);
-//                        noteList.remove(position);
-                        Toast.makeText(Main3Activity.this,ert,Toast.LENGTH_LONG).show();
-                       // noteAdapter.notifyDataSetChanged();
+                        String ert = edtShowTitle.getText().toString();
+                        noteDao = new noteDao(Main3Activity.this);
+                        List<Note> noteList = noteDao.getAllNote();
+                        Note note = noteList.get(position);
+
+                        noteDao.deleteNote(note);
+                        noteList.remove(position);
+                        Toast.makeText(Main3Activity.this, "Xóa thành công", Toast.LENGTH_LONG).show();
+
                         startActivity(new Intent(Main3Activity.this, MainActivity.class));
 
 
